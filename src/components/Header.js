@@ -12,7 +12,8 @@ const Header = () => {
     const [isCollapsed3, setIsCollapsed3] = useState(true);
     const [isCollapsed4, setIsCollapsed4] = useState(true);
     const [email, setEmail] = useState('');
-    
+    const [userName, setUserName] = useState('');
+
   
   
     const toggleAccordion1 = () => {
@@ -31,6 +32,16 @@ const Header = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  const handleUserNameChange = (e) => {
+    const value = e.target.value;
+    // Only allow characters in the user name
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(value) || value === '') {
+      setUserName(value);
+  }
+  
+};
+
 
   const handleGetStartedClick = () => {
     // Handle logic for Get Started button click, such as form submission or validation
@@ -68,8 +79,8 @@ const Header = () => {
                     type="text"
                     placeholder="User Name"
                     style={{ width: "300px", height: "50px", padding: "5px" }}
-                    value={email}
-                    onChange={handleEmailChange}
+                    value={userName}
+                     onChange={handleUserNameChange}
                 />
                <Link to="/Login">
                     <button style={{ width: "200px", height: "65px", marginLeft: "10px", background: "red", color: "white" }}
