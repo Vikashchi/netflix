@@ -35,7 +35,7 @@ const Login = () => {
       
     
       const handleSignIn = () => {
-        navigate('/signin');
+        navigate('/signup');
       };
     
     
@@ -47,12 +47,13 @@ const Login = () => {
     return (
         <div>
              <h1 style={{ color:"red", marginLeft:"80px",paddingTop:"40px"}}>NETFLIX</h1>
-             <button style={{ width: "80px", height: "40px", marginLeft: "1450px", marginTop: "-60px", background: "red", color: "white", position: "absolute" }}>Signin</button>
+             <button style={{ width: "80px", height: "40px", marginLeft: "1350px", marginTop: "-60px", background: "black", color: "white", position: "absolute" }} onClick={()=> navigate('/')}>Home</button>
+             <button style={{ width: "80px", height: "40px", marginLeft: "1450px", marginTop: "-60px", background: "red", color: "white", position: "absolute" }} on onClick={()=>navigate("/signup")}>Signup</button>
                <div style={{ marginLeft: '600px', border: '1px solid #ccc', padding: '20px', borderRadius: '10px', width: '400px', paddingBottom: '20px', marginTop: '30px', borderBlockColor: 'red',background:"violet" }}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="Name">Name</label>
+          <label htmlFor="Name"> user name</label>
           <input
             placeholder="Enter your name"
             type="text"
@@ -94,7 +95,7 @@ const Login = () => {
             Login
           </button>
           <button type="button" onClick={handleSignIn} style={{ marginTop: '10px', marginLeft: '200px', background: 'red', color: 'white' }}>
-            Sign In
+            Sign up
           </button>
         </div>
       </form>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie';
 import fig1 from './fig1.png';
 
-const Signin = () => {
+const Signup = () => {
   const [userData, setUserData] = useState({ Name: '', Password: '' });
   const [loggedInUser, setLoggedInUser] = useState(null);
 
@@ -18,7 +18,13 @@ const Signin = () => {
   const navigate = useNavigate();
 
   const handleNameChange = (e) => {
-    setUserData({ ...userData, Name: e.target.value });
+    const inputName = e.target.value;
+    // Regular expression to match only alphabetic characters
+    const onlyChars = /^[a-zA-Z\s]*$/;
+    
+    if (onlyChars.test(inputName)) {
+      setUserData({ ...userData, Name: inputName });
+    }
   };
 
   const handlePasswordChange = (e) => {
@@ -31,18 +37,22 @@ const Signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (userData.Name && userData.Password) {
-      const userToStore = { Name: userData.Name, Password: userData.Password };
-      Cookies.set('user', JSON.stringify(userToStore), { expires: 30 });
-      alert("You are signed in");
-      navigate('/Login');
-    } else {
-      alert("Name and Password are required.");
-    }
-  };
+    const hasNumber = /\d/.test(userData.Password); // Check if the password contains a number
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(userData.Password); // Check if the password contains a special character
+
+  if (userData.Name && userData.Password && hasNumber && hasSpecialChar) {
+    const userToStore = { Name: userData.Name, Password: userData.Password };
+    Cookies.set('user', JSON.stringify(userToStore), { expires: 30 });
+    alert("You are signed in");
+    navigate('/Login');
+  } else {
+    alert(" Password: at least one number, and one special character are required.");
+  }
+};
 
   return (
     <div>
+      
     <div style={{
       background: `url(${fig1})`,
       backgroundSize: 'cover',
@@ -50,14 +60,19 @@ const Signin = () => {
       height:"700px",
       
       /* Add any other background properties here */
-  }}></div>
+  }}>
+     <h1 style={{ color:"red", marginLeft:"80px",paddingTop:"40px"}}>NETFLIX</h1>
+             <button style={{ width: "80px", height: "40px", marginLeft: "1350px", marginTop: "-60px", background: "violet", color: "white", position: "absolute" }} onClick={()=> navigate('/')}>Home</button>
+            
+  </div>
+  
     <div style={{ marginLeft: '550px', border: '1px solid #ccc', padding: '20px', borderRadius: '10px', width: '400px', paddingBottom: '20px', borderBlockColor: 'red',background:"pink" ,marginTop:"-500px"}}>
-      <h2 style={{color:"brown"}}>Sign In</h2>
+      <h2 style={{color:"brown"}}>Sign up</h2>
       <form onSubmit={handleSubmit}>
         <label style={{ marginBottom: '15px' }}>
           Name:
           <input
-            type="Name"
+            type="user name"
             value={userData.Name}
             onChange={handleNameChange}
             style={{ width: '100%', padding: '8px', boxSizing: 'border-box', borderRadius: '5px', border: '1px solid #ccc' }}
@@ -75,7 +90,7 @@ const Signin = () => {
         </label>
         <br />
         <button type="submit" style={{ marginTop: '10px' }}>
-          Sign In
+          Sign up
         </button>
       </form>
       </div>
@@ -83,4 +98,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;

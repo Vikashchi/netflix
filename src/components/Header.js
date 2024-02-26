@@ -43,7 +43,8 @@ const Header = () => {
             background: `url(${fig1})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            height:"700px"
+            height:"700px",
+            marginTop:"-10px"
             /* Add any other background properties here */
         }}>
             {/* Your component content goes here */}
@@ -54,8 +55,8 @@ const Header = () => {
                     placeholder="English"
                     style={{ width: "70px", height: "30px", padding: "5px" }}
                 />
-                <Link to="/signin">
-                <button style={{width:"80px",height:"40px" ,marginLeft:"40px",background:"red",color:"white"}}>signin</button>
+                <Link to="/signup">
+                <button style={{width:"80px",height:"40px" ,marginLeft:"40px",background:"red",color:"white"}}>signup</button>
                 </Link>
 
             </div>
@@ -65,7 +66,7 @@ const Header = () => {
            <div style={{marginLeft:"450px"}}>
            <input
                     type="text"
-                    placeholder="Email address"
+                    placeholder="User Name"
                     style={{ width: "300px", height: "50px", padding: "5px" }}
                     value={email}
                     onChange={handleEmailChange}

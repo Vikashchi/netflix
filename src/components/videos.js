@@ -1,14 +1,31 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
+const Videos = () => {
+    const navigate = useNavigate(); // initialize the navigate function
+
+    const handleHomeClick = () => {
+        navigate('/'); // navigate to the main page when the button is clicked
+    };
+    const handleLogout = () => {
+        Cookies.remove('user'); // Remove the 'user' cookie
+        navigate('/Signup'); // Navigate to the signup page
+    };
 
 
 
 
 
  
-const Videos = () => {
+
     return (
+        <div style={{ background:"black"}} >
+             <h1 style={{ color:"red", marginLeft:"80px",paddingTop:"40px"}}>NETFLIX</h1>
+             <button style={{ width: "80px", height: "40px", marginLeft: "1300px", marginTop: "-60px", background: "violet", color: "white", position: "absolute" }} onClick={handleHomeClick} >Home</button>
+             <button style={{ width: "80px", height: "40px", marginLeft: "1430px", marginTop: "-60px", background: "Red", color: "white", position: "absolute" }} onClick={handleLogout} >Logout</button>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+              
      <iframe 
                 width="350" 
                 height="315" 
@@ -19,7 +36,8 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen 
+                 style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -28,7 +46,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen  style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -37,7 +55,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen  style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -46,7 +64,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -55,7 +73,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -66,7 +84,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -77,7 +95,7 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen style={{border:"2px solid red"}}>
             </iframe>
             <iframe 
                 width="350" 
@@ -88,10 +106,11 @@ const Videos = () => {
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
+                allowfullscreen style={{border:"2px solid red"}}>
             </iframe>
         
         
+      </div>
       </div>
         
     );

@@ -8,7 +8,7 @@ import Videos from './components/videos';
 import Vikash from './components/vikash';
 
 
-import Signin from './components/Signin';
+import Signup from './components/Signup';
 import Login from './components/Login';
 
 
@@ -22,7 +22,7 @@ const App = () => {
         <Route  exact path="/" element={<Header />} />
        
         
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/videos" element={<Videos />} />
           <Route path="/vikash" element={<Vikash />} />
           <Route path="/Login" element={<Login />} />
